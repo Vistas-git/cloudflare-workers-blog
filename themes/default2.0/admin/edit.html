@@ -2,11 +2,11 @@
 <html>
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>编辑文章 - CF-blog后台</title>
     <link rel="icon" type="image/x-icon" href="https://cdn.jsdelivr.net/gh/gdtool/zhaopp/cfblog/favicon.ico" />
 	<link rel="shortcut icon" type="image/x-icon"  href="https://cdn.jsdelivr.net/gh/gdtool/zhaopp/cfblog/favicon.ico"/>
     <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
-    <!--//<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/editor.md@1.5.0/examples/css/style.css" />-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/editor.md@1.5.0/css/editormd.css" />
     <link rel="stylesheet" href="https://cdn.staticfile.org/bootstrap-select/1.9.4/css/bootstrap-select.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
@@ -16,80 +16,110 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/i18n/defaults-zh_CN.min.js"></script>
 	<style>
-		.bootstrap-select>.dropdown-toggle {
-		z-index:auto;
+		/* 复用首页的现代化样式 */
+		body { background-color: #f4f6f9; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; color: #333; }
+		.navbar-default { background-color: #fff; border: none; box-shadow: 0 2px 10px rgba(0,0,0,0.05); margin-bottom: 0; }
+		.container-fluid { padding-left: 15px; padding-right: 15px; }
+		.nav-tabs { border-bottom: none; }
+		.nav-tabs > li > a { color: #666; font-weight: 500; padding: 15px; }
+		.nav-tabs > li.active > a { color: #4a90e2; border: none; border-bottom: 2px solid #4a90e2; background: transparent; }
+		
+		.edit-container { background: #fff; padding: 25px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.03); margin-top: 20px; margin-bottom: 40px; }
+		
+		.form-control { box-shadow: none; border: 1px solid #eee; border-radius: 4px; height: 40px; }
+		.form-control:focus { border-color: #4a90e2; }
+		
+		.btn { padding: 8px 20px; border-radius: 4px; }
+		
+		@media (max-width: 768px) {
+			.edit-container { padding: 15px; margin-top: 10px; }
+			.bootstrap-select:not([class*="col-"]):not([class*="form-control"]):not(.input-group-btn) { width: 100%; }
 		}
+		.bootstrap-select > .dropdown-toggle { z-index: auto; background: #fff; border: 1px solid #eee; }
 	</style>
-	
 </head>
 <body>
 
-<nav class="navbar navbar-default" role="navigation">
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
 	<div class="container-fluid">
-
-	<div>
 		<ul id="myTab" class="nav nav-tabs">
 			<li class="active">
-				<a href="/admin/" >返回文章</a>
+				<a href="/admin/" ><span class="glyphicon glyphicon-chevron-left"></span> 返回列表</a>
 			</li>
+            <li><a href="#" style="pointer-events: none; color: #333;">编辑文章</a></li>
 		</ul>
 	</div>
-	</div>
 </nav>
-<div id="myTabContent" class="tab-content" style="padding-top: 60px;">
 
-		<div class="container">
-			<h3>编辑文章</h3>   
+<div class="container edit-container" style="padding-top: 20px;"> <!-- Removed top padding from body, added to container -->
+    <div style="height: 60px;"></div> <!-- Spacer for fixed nav -->
 
-			<form id="editForm" class="form-inline"  action="/" >
+    <form id="editForm" action="/" >
+        <div class="row">
+            <div class="col-md-12 form-group">
+                <label>文章标题</label>
+                <input type="hidden" class="form-control" name="id" id="id" readonly required="true">
+                <input type="text" class="form-control" name="title" id="title" placeholder="标题" required="true">
+            </div>
+        </div>
 
-				<div class="form-group" style="width: 98%">
-					<input type="hidden" class="form-control" name="id" id="id" readonly required="true">
-					<input type="text" class="form-control" name="title" id="title" placeholder="标题" style="width: 800px;" required="true">
-				</div>
-				<div class="form-group">
-					<label for="exampleInputEmail2">特色图片</label>
-					<input type="url" class="form-control" style="width: 400px;"  name="img" id="img" placeholder="" >
-				</div>
-				<div class="form-group">
-					<label for="exampleInputEmail2">永久链接</label>
-					<input type="text" class="form-control" name="link" id="link" placeholder="" style="vertical-align:left !important;" required="true">
-				</div>
-				<div class="form-group">
-					<label for="exampleInputEmail2">创建日期</label>
-					<input type="datetime-local" class="form-control" id="createDate" name="createDate" placeholder="" style="vertical-align:left !important;" required="true">
-				</div>
-				<div class="form-group">
-					<label for="exampleInputEmail2">分类</label>
-					<select class="selectpicker" multiple name="category[]" id="category">
-					</select>
-				</div>
-				<div class="form-group">
-					<label for="exampleInputEmail2">标签</label>
-					<input type="text" class="form-control" name="tags" id="tags" placeholder="标签1,标签2">
-				</div>
-				<div class="form-group">
-					<label for="exampleInputEmail2">权重</label>
-					<input type="text" class="form-control" name="priority" id="priority" value='0.5' placeholder="权重">
-				</div>
-				<div class="form-group">
-					<label for="exampleInputEmail2">更新频率</label>
-					    <select class="form-control" id="changefreq" name="changefreq">
-						<option value="daily" >daily</option>
-						<option value="hourly" >hourly</option>
-						<option value="weekly" >weekly</option>
-						<option value="monthly" >monthly</option>
-						<option value="yearly" >yearly</option>
-						<option value="never" >never</option>
-						<option value="always" >always</option>
-					    </select>
-				</div>
-					<a tabindex="0"  role="button"  type="submit" id="btn_saveEdit" class="btn btn-default" onclick="saveEdit()">保存</a>
-					<a  type="submit" role="button" id="btn_delete" class="btn btn-warning" onclick="deleteArticle()">删除</a>
-				<div id="content"><textarea style="display:none;"></textarea></div>
-			</form>
-		</div>
+        <div class="row">
+            <div class="col-md-6 form-group">
+                <label>永久链接 (Slug)</label>
+                <input type="text" class="form-control" name="link" id="link" placeholder="链接名" required="true">
+            </div>
+            <div class="col-md-6 form-group">
+                <label>创建日期</label>
+                <input type="datetime-local" class="form-control" id="createDate" name="createDate" required="true">
+            </div>
+        </div>
 
+        <div class="row">
+            <div class="col-md-12 form-group">
+                <label>特色图片</label>
+                <input type="url" class="form-control" name="img" id="img" placeholder="图片URL" >
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 form-group">
+                <label>分类</label>
+                <select class="selectpicker form-control" multiple name="category[]" id="category" data-width="100%"></select>
+            </div>
+            <div class="col-md-6 form-group">
+                <label>标签</label>
+                <input type="text" class="form-control" name="tags" id="tags" placeholder="标签1,标签2">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 form-group">
+                <label>权重</label>
+                <input type="text" class="form-control" name="priority" id="priority" value='0.5' placeholder="0.5">
+            </div>
+            <div class="col-md-6 form-group">
+                <label>更新频率</label>
+                <select class="form-control" id="changefreq" name="changefreq">
+                    <option value="daily" >daily</option>
+                    <option value="hourly" >hourly</option>
+                    <option value="weekly" >weekly</option>
+                    <option value="monthly" >monthly</option>
+                    <option value="yearly" >yearly</option>
+                    <option value="never" >never</option>
+                    <option value="always" >always</option>
+                </select>
+            </div>
+        </div>
+
+        <div id="content" style="margin-top: 20px;"><textarea style="display:none;"></textarea></div>
+
+        <div class="row" style="margin-top: 30px;">
+            <div class="col-md-12 text-right">
+                <button type="button" id="btn_delete" class="btn btn-danger pull-left" onclick="deleteArticle()">删除文章</button>
+                <button type="button" id="btn_saveEdit" class="btn btn-primary btn-lg" style="background:#4a90e2;" onclick="saveEdit()">保存修改</button>
+            </div>
+        </div>
+    </form>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/editor.md@1.5.0/editormd.js"></script>   
@@ -101,9 +131,8 @@
 		//获取分类
 		var categoryJson = <!--{categoryJson}-->;
 
-		
 		var mdEditor = editormd("content", {
-				//width  : "90%",
+				width  : "100%",
 				height : 640,
 				path   : "https://cdn.jsdelivr.net/npm/editor.md@1.5.0/lib/",
 				appendMarkdown : articleJson.contentMD, //编辑器赋值
@@ -111,7 +140,11 @@
 				mode : "markdown",
 				tex  : true,
 				tocm : true, 
-				codeFold : true
+				codeFold : true,
+                htmlDecode : "style,script,iframe|on*",
+                toolbarIcons : function() {
+                    return ["undo", "redo", "|", "bold", "del", "italic", "quote", "|", "h1", "h2", "h3", "|", "list-ul", "list-ol", "hr", "|", "link", "reference-link", "image", "code", "preformatted-text", "code-block", "|", "goto-line", "watch", "preview", "fullscreen", "clear", "search"]
+                }
 			});
 		//表单赋值
 		$('#id').val(articleJson.id);
@@ -123,14 +156,18 @@
 		$('#priority').val( (articleJson.priority=== undefined ? "0.5":articleJson.priority) );
 		$('#changefreq').selectpicker('val', (articleJson.changefreq === undefined ? "daily":articleJson.changefreq));
 	
-		$('#WidgetCategory').val(JSON.stringify(categoryJson));
+		// $('#WidgetCategory').val(JSON.stringify(categoryJson)); // 移除，edit页面不需要设置配置
 		var category = $('#category');
 		category.empty();
-		for (var i = 0; i < categoryJson.length; i++) {
-			category.append('<option id=' + categoryJson[i] + ' value=' + categoryJson[i] + '>' + categoryJson[i] + '</option>');
-		}
+        if(categoryJson) {
+            for (var i = 0; i < categoryJson.length; i++) {
+                category.append('<option id=' + categoryJson[i] + ' value=' + categoryJson[i] + '>' + categoryJson[i] + '</option>');
+            }
+        }
 		category.selectpicker('val',articleJson.category);
+        $('.selectpicker').selectpicker('refresh');
 	});
+
     //保存按钮(编辑)
     function saveEdit(){
         $.ajax({
@@ -141,6 +178,10 @@
             data: JSON.stringify($("#editForm").serializeArray()), 
             success: function (result) {
                 alert(result.msg);
+                if(result.rst) {
+                    // 可选：成功后跳转回列表
+                    // window.location.href = '/admin/';
+                }
             }
         });
     }
@@ -157,11 +198,13 @@
             data: [{"id":$('#id').val()}],
             success: function (result) {
                 alert(result.msg);
+                if(result.rst) {
+                    window.location.href = '/admin/';
+                }
             }
         });
     }
 </script>
   
 </body>
-
 </html>
