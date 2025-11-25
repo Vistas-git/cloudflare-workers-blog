@@ -141,9 +141,24 @@
 				tex  : true,
 				tocm : true, 
 				codeFold : true,
+                watch: true, // 强制开启实时预览
+                delay: 300,  // 预览延迟时间
                 htmlDecode : "style,script,iframe|on*",
                 toolbarIcons : function() {
                     return ["undo", "redo", "|", "bold", "del", "italic", "quote", "|", "h1", "h2", "h3", "|", "list-ul", "list-ol", "hr", "|", "link", "reference-link", "image", "code", "preformatted-text", "code-block", "|", "goto-line", "watch", "preview", "fullscreen", "clear", "search"]
+                },
+                onload : function() {
+                    // 修复粘贴后不刷新的问题，手动触发一次 change
+                    var _this = this;
+                    this.cm.on("change", function(){
+                        _this.save(); 
+                    });
+                    // 绑定粘贴事件，强制刷新预览
+                    this.cm.on("paste", function(){
+                        setTimeout(function(){
+                            _this.preview(); // 强制刷新预览
+                        }, 100);
+                    });
                 }
 			});
 		//表单赋值
