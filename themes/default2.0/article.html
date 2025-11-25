@@ -1,235 +1,157 @@
 <!DOCTYPE html>
-<!--[if IE 7]>
-	<html class="ie ie7" lang="zh-CN">
-	<![endif]-->
-	<!--[if IE 8]>
-		<html class="ie ie8" lang="zh-CN">
-		<![endif]-->
-		<!--[if !(IE 7) | !(IE 8) ]>
-			<!-->
-			<html lang="zh-CN">
-			<!--<![endif]-->
-			<head>
-				<meta charset="UTF-8" />
-				<meta name="viewport" content="width=device-width, initial-scale=1" />
-				<link rel="profile" href="http://gmpg.org/xfn/11" />
-				<link rel="icon" type="image/x-icon" href="https://cdn.jsdelivr.net/gh/gdtool/zhaopp/cfblog/favicon.ico" />
-				<link rel="Shortcut Icon" href="https://cdn.jsdelivr.net/gh/gdtool/zhaopp/cfblog/favicon.ico">
-				<title>{{ &articleSingle.title }} - {{ &OPT.siteName }}</title>
-				<meta name="keywords" content="{{ &articleSingle.category }},{{ &articleSingle.tags }}" />
-				<meta name="description" content="{{ &OPT.siteDescription }}" />
-				<link rel="dns-prefetch" href="//fonts.googleapis.com" />
-				<link rel="dns-prefetch" href="//s.w.org" />
-				<script type="text/javascript">window._wpemojiSettings = {
-						"baseUrl": "https:\/\/s.w.org\/images\/core\/emoji\/13.0.1\/72x72\/",
-						"ext": ".png",
-						"svgUrl": "https:\/\/s.w.org\/images\/core\/emoji\/13.0.1\/svg\/",
-						"svgExt": ".svg",
-						"source": {
-							"concatemoji": "https:\/\/cdn.jsdelivr.net\/gh\/gdtool\/zhaopp\/cfblog\/wp-emoji-release.min.js?ver=5.6"
-						}
-					}; !
-					function(e, a, t) {
-						var r, n, o, i, p = a.createElement("canvas"),
-						s = p.getContext && p.getContext("2d");
-						function c(e, t) {
-							var a = String.fromCharCode;
-							s.clearRect(0, 0, p.width, p.height),
-							s.fillText(a.apply(this, e), 0, 0);
-							var r = p.toDataURL();
-							return s.clearRect(0, 0, p.width, p.height),
-							s.fillText(a.apply(this, t), 0, 0),
-							r === p.toDataURL()
-						}
-						function l(e) {
-							if (!s || !s.fillText) return ! 1;
-							switch (s.textBaseline = "top", s.font = "600 32px Arial", e) {
-							case "flag":
-								return ! c([127987, 65039, 8205, 9895, 65039], [127987, 65039, 8203, 9895, 65039]) && (!c([55356, 56826, 55356, 56819], [55356, 56826, 8203, 55356, 56819]) && !c([55356, 57332, 56128, 56423, 56128, 56418, 56128, 56421, 56128, 56430, 56128, 56423, 56128, 56447], [55356, 57332, 8203, 56128, 56423, 8203, 56128, 56418, 8203, 56128, 56421, 8203, 56128, 56430, 8203, 56128, 56423, 8203, 56128, 56447]));
-							case "emoji":
-								return ! c([55357, 56424, 8205, 55356, 57212], [55357, 56424, 8203, 55356, 57212])
-							}
-							return ! 1
-						}
-						function d(e) {
-							var t = a.createElement("script");
-							t.src = e,
-							t.defer = t.type = "text/javascript",
-							a.getElementsByTagName("head")[0].appendChild(t)
-						}
-						for (i = Array("flag", "emoji"), t.supports = {
-							everything: !0,
-							everythingExceptFlag: !0
-						},
-						o = 0; o < i.length; o++) t.supports[i[o]] = l(i[o]),
-						t.supports.everything = t.supports.everything && t.supports[i[o]],
-						"flag" !== i[o] && (t.supports.everythingExceptFlag = t.supports.everythingExceptFlag && t.supports[i[o]]);
-						t.supports.everythingExceptFlag = t.supports.everythingExceptFlag && !t.supports.flag,
-						t.DOMReady = !1,
-						t.readyCallback = function() {
-							t.DOMReady = !0
-						},
-						t.supports.everything || (n = function() {
-							t.readyCallback()
-						},
-						a.addEventListener ? (a.addEventListener("DOMContentLoaded", n, !1), e.addEventListener("load", n, !1)) : (e.attachEvent("onload", n), a.attachEvent("onreadystatechange",
-						function() {
-							"complete" === a.readyState && t.readyCallback()
-						})), (r = t.source || {}).concatemoji ? d(r.concatemoji) : r.wpemoji && r.twemoji && (d(r.twemoji), d(r.wpemoji)))
-					} (window, document, window._wpemojiSettings);</script>
-				<style type="text/css">img.wp-smiley, img.emoji { display: inline !important; border: none !important; box-shadow: none !important; height: 1em !important; width: 1em !important; margin: 0 .07em !important; vertical-align: -0.1em !important; background: none !important; padding: 0 !important; }</style>
-				<link rel="stylesheet" id="wp-block-library-css" href="https://cdn.jsdelivr.net/gh/WordPress/WordPress@5.5.3/wp-includes/css/dist/block-library/style.min.css?ver=5.6" type="text/css" media="all" />
-				<style id="md-style-inline-css" type="text/css">.gfm-task-list { border: 1px solid transparent; list-style-type: none; } .gfm-task-list input { margin-right: 10px !important; } .copy-button { cursor: pointer; border: 0; font-size: 12px; text-transform: uppercase; font-weight: 500; padding: 3px 6px 3px 6px; background-color: rgba(255, 255, 255, 0.6); position: absolute; overflow: hidden; top: 5px; right: 5px; border-radius: 3px; } .copy-button:before { content: ""; display: inline-block; width: 16px; height: 16px; margin-right: 3px; background-size: contain; background-image: url("data:image/svg+xml,%3Csvg version=\'1.1\' xmlns=\'http://www.w3.org/2000/svg\' xmlns:xlink=\'http://www.w3.org/1999/xlink\' x=\'0px\' y=\'0px\' width=\'16px\' height=\'16px\' viewBox=\'888 888 16 16\' enable-background=\'new 888 888 16 16\' xml:space=\'preserve\'%3E %3Cpath fill=\'%23333333\' d=\'M903.143,891.429c0.238,0,0.44,0.083,0.607,0.25c0.167,0.167,0.25,0.369,0.25,0.607v10.857 c0,0.238-0.083,0.44-0.25,0.607s-0.369,0.25-0.607,0.25h-8.571c-0.238,0-0.44-0.083-0.607-0.25s-0.25-0.369-0.25-0.607v-2.571 h-4.857c-0.238,0-0.44-0.083-0.607-0.25s-0.25-0.369-0.25-0.607v-6c0-0.238,0.06-0.5,0.179-0.786s0.262-0.512,0.428-0.679 l3.643-3.643c0.167-0.167,0.393-0.309,0.679-0.428s0.547-0.179,0.786-0.179h3.714c0.238,0,0.44,0.083,0.607,0.25 c0.166,0.167,0.25,0.369,0.25,0.607v2.929c0.404-0.238,0.785-0.357,1.143-0.357H903.143z M898.286,893.331l-2.67,2.669h2.67V893.331 z M892.571,889.902l-2.669,2.669h2.669V889.902z M894.321,895.679l2.821-2.822v-3.714h-3.428v3.714c0,0.238-0.083,0.441-0.25,0.607 s-0.369,0.25-0.607,0.25h-3.714v5.714h4.571v-2.286c0-0.238,0.06-0.5,0.179-0.786C894.012,896.071,894.155,895.845,894.321,895.679z M902.857,902.857v-10.286h-3.429v3.714c0,0.238-0.083,0.441-0.25,0.607c-0.167,0.167-0.369,0.25-0.607,0.25h-3.714v5.715H902.857z\' /%3E %3C/svg%3E"); background-repeat: no-repeat; position: relative; top: 3px; } pre { position: relative; } pre:hover .copy-button { background-color: rgba(255, 255, 255, 0.9); }</style>
-				<link rel="stylesheet" id="themonic-fonts-css" href="https://fonts.googleapis.com/css?family=Ubuntu%3A400%2C700&amp;subset=latin%2Clatin-ext" type="text/css" media="all" />
-				<link rel="stylesheet" id="themonic-style-css" href="https://cdn.jsdelivr.net/gh/gdtool/cloudflare-workers-blog@master/themes/default/style.css" type="text/css" media="all" />
-				<link rel="stylesheet" id="custom-style-css" href="https://cdn.jsdelivr.net/wp/themes/iconic-one/2.1.8/custom.min.css?ver=5.6" type="text/css" media="all" />
-				<meta name="generator" content="WordPress 5.6" />
-				<style type="text/css" id="wp-custom-css">@media (max-width: 768px) { #secondary { display:none !important; } #menu-top{ display:none !important; } .site-content { float: left; width: 92%; padding: 30px 2% 0 1%; } .site-description{ display:none !important; } .io-title-description { display: inline-block; margin: 17px 0; padding: 0px 0; float: none; } .wrapper { border: 1px solid #16a1e7 !important; } }</style>
-				<link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.3.2/styles/tomorrow-night-bright.min.css">
-				<script src='https://cdn.staticfile.org/highlight.js/10.3.2/highlight.min.js'></script>
-				{{ &OPT.codeBeforHead }}
-			</head>
-			<body class="home blog logged-in custom-font-enabled single-author hfeed">
-				<div id="page" class="site">
-					<header id="masthead" class="site-header" role="banner">
-						<div class="io-title-description">
-							<a href="/" title="{{ &OPT.siteName }}" rel="home">{{ &OPT.siteName }}</a>
-							<br ...="" />
-							<a class="site-description">{{ &OPT.siteDescription }}</a></div>
-						<nav id="site-navigation" class="themonic-nav" role="navigation">
-							<a class="assistive-text" href="#main" title="Skip to content">Skip to content</a>
-							<ul id="menu-top" class="nav-menu">
-								{{ #widgetMenuList }}
-									<li id="menu-item-211" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-211">
-										<a href="{{ &url }}">{{ &title }}</a>
-									</li>
-								{{ /widgetMenuList }}
-							</ul>
-						</nav>
-						<!-- #site-navigation -->
-						<div class="clear"></div>
-					</header>
-					<!-- #masthead -->
-					<div id="main" class="wrapper">
-						<div id="primary" class="site-content">
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+    <meta name="keywords" content="{{keyWords}}">
+    <meta name="description" content="{{articleSingle.contentText}}">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
+    {{{OPT.codeBeforHead}}}
 
-							<div id="content" role="main">
-								<article id="post-{{ &articleSingle.id }}" class="post-{{ &articleSingle.id }} post type-post status-publish format-standard hentry category-4">
-									<header class="entry-header">
-										<h1 class="entry-title">{{ &articleSingle.title }}</h1>
-										<div class="below-title-meta">
-											<div class="adt">By
-												<span class="vcard author">
-													<span class="fn">
-														<a href="#" title="由admin发布" rel="author">admin</a></span>
-												</span>
-												<span class="meta-sep">|</span>
-												<span class="date updated">{{ &articleSingle.createDate10 }}</span></div>
-											<div class="adt-comment">
-												<span id="{{ &articleSingle.url }}" class="leancloud_visitors">
-													<em class="post-meta-item-text">{{ &OPT.otherCodeA }}</em>
-													<i class="leancloud-visitors-count"></i>
-												</span>
-											</div>
-										</div>
-										<!-- below title meta end -->
-									</header>
-									<!-- .entry-header -->
-									<div class="entry-content">
-										{{ &articleSingle.contentHtml }}
-									</div>
-									<!-- .entry-content -->
-									<footer class="entry-meta">
-										<span>分类:
-											{{ #articleSingle.category }}
-												<a href="/category/{{&.}}" rel="category tag">{{&.}}</a>
-											{{ /articleSingle.category }}
-										</span>	
-										<span>标签：
-											{{ #articleSingle.tags }}
-												<a href="/tags/{{&.}}" rel="tag">{{&.}} </a> 
-											{{ /articleSingle.tags }}
+    <style>
+        /* 复用首页核心样式 */
+        :root {
+            --primary-color: #4a90e2;
+            --bg-color: #f4f6f8;
+            --card-bg: #ffffff;
+            --text-main: #333;
+            --text-sub: #666;
+            --header-height: 70px;
+            --logo-max-height: 50px;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.8; /* 文章页行高稍微加大 */
+        }
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        a:hover { color: var(--primary-color); }
+        
+        .site-header { background: var(--card-bg); box-shadow: 0 2px 10px rgba(0,0,0,0.05); height: var(--header-height); position: sticky; top: 0; z-index: 100; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; height: 100%; display: flex; justify-content: space-between; align-items: center; }
+        .site-branding { display: flex; align-items: center; }
+        .custom-logo { display: block; max-height: var(--logo-max-height); width: auto; object-fit: contain; }
+        .site-title { font-size: 1.5rem; font-weight: 700; color: #333; }
+        .site-nav ul { display: flex; gap: 20px; list-style: none; }
+        .site-nav a { font-size: 0.95rem; font-weight: 500; color: var(--text-sub); }
+        
+        .site-content { display: grid; grid-template-columns: 1fr 300px; gap: 30px; margin: 30px auto; max-width: 1100px; padding: 0 20px; }
+        
+        /* --- 文章详情独有样式 --- */
+        .article-card {
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+        }
+        .article-header { margin-bottom: 30px; border-bottom: 1px solid #eee; padding-bottom: 20px; }
+        .article-title { font-size: 2rem; font-weight: 700; margin-bottom: 15px; color: #222; }
+        .article-meta { color: #999; font-size: 0.9rem; }
+        .article-meta span { margin-right: 20px; }
+        
+        .article-body { font-size: 1.05rem; color: #444; }
+        .article-body h2 { margin: 30px 0 15px; font-size: 1.5rem; border-left: 4px solid var(--primary-color); padding-left: 15px; background: #f9f9f9; line-height: 2; }
+        .article-body h3 { margin: 25px 0 12px; font-size: 1.3rem; font-weight: 600; }
+        .article-body p { margin-bottom: 20px; }
+        .article-body img { max-width: 100%; height: auto; border-radius: 5px; margin: 10px 0; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+        .article-body pre { background: #2d2d2d; color: #ccc; padding: 15px; border-radius: 5px; overflow-x: auto; margin-bottom: 20px; }
+        .article-body blockquote { border-left: 4px solid #ddd; padding-left: 15px; color: #777; margin: 20px 0; font-style: italic; }
 
-										</span>
-									</footer>
-									<!-- .entry-meta -->
-								</article>
-								<!-- #post -->
-								<nav class="nav-single">
-									<div class="assistive-text">Post navigation</div>
-									<span class="nav-previous">
-										{{ #articleNewer }}
-										<a href="{{ &url }}" rel="prev">
-											<span class="meta-nav">←</span>{{ &title }}</a>
-										{{ /articleNewer }}
-									</span>
-									<span class="nav-next">
-										{{ #articleOlder }}
-										<a href="{{ &url }}" rel="next">{{ &title }}
-											<span class="meta-nav">→</span></a>
-										{{ /articleOlder }}
-									</span>
-								</nav>
-								<!-- .nav-single -->
-								{{ &OPT.commentCode }}
-								<!-- #comments .comments-area -->
-							</div>
-							<!-- #上面俩,二选一 -->
-						</div>
-						<!-- #primary -->
-						<div id="secondary" class="widget-area" role="complementary">
-							<aside id="recent-posts-2" class="widget widget_recent_entries">
-								<p class="widget-title">近期文章</p>
-								<ul>
-									{{ #widgetRecentlyList }}
-									<li><a href="{{ &url }}">{{ &title }}</a></li>
-									{{ /widgetRecentlyList }}
-								</ul>
-							</aside>
-							<aside id="categories-4" class="widget widget_categories">
-								<p class="widget-title">分类目录</p>
-								<ul>
-									{{ #widgetCategoryList }}
-									<li class="cat-item cat-item-5"><a href="/category/{{&.}}">{{&.}}</a></li>
-									{{ /widgetCategoryList }}
-								</ul>
-							</aside>
-							<aside id="tag_cloud-2" class="widget widget_tag_cloud">
-								<p class="widget-title">标签云</p>
-								<div class="tagcloud">
-								
-									{{ #widgetTagsList }}
-									<a href="/tags/{{&.}}" class="tag-cloud-link tag-link-18 tag-link-position-3" style="font-size: 8pt;">{{&.}}</a>
-									{{ /widgetTagsList }}
+        .article-nav { margin-top: 40px; display: flex; justify-content: space-between; padding-top: 20px; border-top: 1px solid #eee; }
+        .nav-btn { max-width: 45%; font-size: 0.9rem; color: var(--primary-color); }
 
-								</div>
-							</aside>
-							<aside id="meta-2" class="widget widget_meta">
-								<p class="widget-title">链接</p>
-								<ul>
-									<li><a href="/admin/">管理站点</a></li>
-									{{ #widgetLinkList }}
-									<li><a href="{{ &url }}">{{ &title }}</a></li>
-									{{ /widgetLinkList }}
-								</ul>
-							</aside>
-							{{ &OPT.widgetOther }}
-						</div>
-						<!-- #secondary -->
-					</div>
-					<!-- #main .wrapper -->
-					<!-- #colophon -->
-					<div class="site-wordpress">{{ &OPT.copyRight }}</div>
-					<!-- .site-info -->
-					<div class="clear"></div>
-				</div>
-				<!-- #page -->
-				<script type="text/javascript" src="https://cdn.jsdelivr.net/wp/themes/iconic-one/2.1.8/js/selectnav.min.js?ver=1.0" id="themonic-mobile-navigation-js"></script>
-				<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/WordPress/WordPress@5.6/wp-includes/js/clipboard.min.js?ver=5.6" id="clipboard-js"></script>
-				<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/gdtool/zhaopp/cfblog/wp-embed.min.js?ver=5.6" id="wp-embed-js"></script>
-				<script>hljs.initHighlightingOnLoad(); //代码高亮
-					</script>
-				{{ &OPT.codeBeforBody }}
-			</body>
-			
-			</html>
+        .widget { background: var(--card-bg); padding: 20px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.02); margin-bottom: 25px; }
+        .widget-title { font-size: 1.1rem; border-left: 4px solid var(--primary-color); padding-left: 10px; margin-bottom: 15px; font-weight: 600; }
+        .widget ul { list-style: none; }
+        .widget ul li { padding: 8px 0; border-bottom: 1px dashed #eee; font-size: 0.9rem; }
+        
+        .site-footer { background: #fff; padding: 30px 0; text-align: center; margin-top: 50px; font-size: 0.9rem; color: #999; border-top: 1px solid #eee; }
+        
+        @media (max-width: 768px) {
+            .site-content { grid-template-columns: 1fr; }
+            .site-nav { display: none; }
+            .article-card { padding: 20px; }
+            .article-title { font-size: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="container">
+            <div class="site-branding">
+                <a href="/">
+                    <!-- ✨ 这里需要和 index.html 保持一致的 Logo 图片地址 ✨ -->
+                    <img src="https://placehold.co/200x60/4a90e2/ffffff?text=My+Blog" 
+                         alt="{{OPT.siteName}}" 
+                         class="custom-logo"
+                         onerror="this.style.display='none'; document.getElementById('text-logo').style.display='block';">
+                    <span id="text-logo" class="site-title" style="display:none">{{OPT.siteName}}</span>
+                </a>
+            </div>
+            <nav class="site-nav">
+                <ul>{{{widgetMenuList}}}</ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="site-content">
+        <main>
+            {{#articleSingle}}
+            <article class="article-card">
+                <header class="article-header">
+                    <h1 class="article-title">{{title}}</h1>
+                    <div class="article-meta">
+                        <span><i class="far fa-calendar-alt"></i> {{createDate10}}</span>
+                        <span><i class="fas fa-tags"></i> {{tags}}</span>
+                    </div>
+                </header>
+                <div class="article-body">
+                    {{{contentHtml}}}
+                </div>
+            </article>
+            {{/articleSingle}}
+
+            <!-- 上一篇/下一篇 -->
+            <div class="article-nav">
+                {{#articleNewer}}
+                <a href="{{url}}" class="nav-btn">← {{title}}</a>
+                {{/articleNewer}}
+                {{#articleOlder}}
+                <a href="{{url}}" class="nav-btn" style="margin-left: auto;">{{title}} →</a>
+                {{/articleOlder}}
+            </div>
+
+            <!-- 评论区 -->
+            <div class="comments-area widget" style="margin-top: 30px;">
+                {{{OPT.commentCode}}}
+            </div>
+        </main>
+
+        <aside>
+            <div class="widget">
+                <h3 class="widget-title">最近更新</h3>
+                <ul>{{{widgetRecentlyList}}}</ul>
+            </div>
+            <div class="widget">
+                <h3 class="widget-title">分类</h3>
+                <ul>{{{widgetCategoryList}}}</ul>
+            </div>
+            {{{OPT.widgetOther}}}
+        </aside>
+    </div>
+
+    <footer class="site-footer">
+        <div class="container">
+            {{{OPT.copyRight}}}
+        </div>
+    </footer>
+
+    {{{OPT.codeBeforBody}}}
+</body>
+</html>
