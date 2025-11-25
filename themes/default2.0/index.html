@@ -54,7 +54,7 @@
             align-items: center;
         }
 
-        /* --- Logo 区域美化 (核心需求) --- */
+        /* --- Logo 区域美化 --- */
         .site-branding { display: flex; align-items: center; }
         .custom-logo {
             display: block;
@@ -138,6 +138,12 @@
             font-size: 0.9rem;
         }
         .widget ul li:last-child { border-bottom: none; }
+        .tag-cloud ul { display: flex; flex-wrap: wrap; gap: 8px; }
+        .tag-cloud li { border: none; padding: 0; }
+        .tag-cloud a {
+            background: #f0f2f5; padding: 4px 10px; border-radius: 4px; font-size: 0.85rem; color: #555;
+        }
+        .tag-cloud a:hover { background: var(--primary-color); color: #fff; }
 
         /* --- 分页 --- */
         .pagination { display: flex; justify-content: space-between; margin-top: 20px;}
@@ -174,21 +180,20 @@
         <div class="container">
             <div class="site-branding">
                 <a href="/">
-                    <!-- ✨ 自定义 LOGO 设置 ✨ -->
-                    <!-- 1. 如果你想用图片 Logo，请将下方的 src 替换为你的图片链接，并删除 style="display:none" -->
-                    <!-- 2. 如果图片加载失败 (onerror)，会自动显示文字标题 -->
+                    <!-- ✨ Logo 设置 ✨ -->
                     <img src="https://placehold.co/200x60/4a90e2/ffffff?text=My+Blog" 
                          alt="{{OPT.siteName}}" 
                          class="custom-logo"
                          onerror="this.style.display='none'; document.getElementById('text-logo').style.display='block';">
-                    
-                    <!-- 文字标题 (备用) -->
                     <span id="text-logo" class="site-title" style="display:none">{{OPT.siteName}}</span>
                 </a>
             </div>
             <nav class="site-nav">
                 <ul>
-                    {{{widgetMenuList}}}
+                    <!-- 修复：循环渲染菜单 -->
+                    {{#widgetMenuList}}
+                    <li><a href="{{url}}">{{title}}</a></li>
+                    {{/widgetMenuList}}
                 </ul>
             </nav>
         </div>
@@ -234,21 +239,41 @@
         <aside>
             <div class="widget">
                 <h3 class="widget-title">分类</h3>
-                <ul>{{{widgetCategoryList}}}</ul>
+                <ul>
+                    <!-- 修复：循环渲染分类 -->
+                    {{#widgetCategoryList}}
+                    <li><a href="/category/{{.}}">{{.}}</a></li>
+                    {{/widgetCategoryList}}
+                </ul>
             </div>
             <div class="widget">
                 <h3 class="widget-title">最近更新</h3>
-                <ul>{{{widgetRecentlyList}}}</ul>
+                <ul>
+                    <!-- 修复：循环渲染最近更新 -->
+                    {{#widgetRecentlyList}}
+                    <li><a href="{{url}}">{{title}}</a></li>
+                    {{/widgetRecentlyList}}
+                </ul>
             </div>
             <div class="widget">
                 <h3 class="widget-title">标签</h3>
                 <div class="tag-cloud">
-                    <ul>{{{widgetTagsList}}}</ul>
+                    <ul>
+                        <!-- 修复：循环渲染标签 -->
+                        {{#widgetTagsList}}
+                        <li><a href="/tags/{{.}}">{{.}}</a></li>
+                        {{/widgetTagsList}}
+                    </ul>
                 </div>
             </div>
             <div class="widget">
                 <h3 class="widget-title">友情链接</h3>
-                <ul>{{{widgetLinkList}}}</ul>
+                <ul>
+                    <!-- 修复：循环渲染友链 -->
+                    {{#widgetLinkList}}
+                    <li><a href="{{url}}" target="_blank">{{title}}</a></li>
+                    {{/widgetLinkList}}
+                </ul>
             </div>
             {{{OPT.widgetOther}}}
         </aside>
